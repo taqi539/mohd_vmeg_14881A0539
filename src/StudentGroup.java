@@ -45,6 +45,7 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException("IllegalArgument");
 		}	
 		this.students=students;
+		
 	}
 
 	@Override
@@ -60,11 +61,12 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
-		this.getStudents()[index] = student;
+		
 		if(student==null)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
+		this.getStudents()[index] = student;
 		if(index < 0 || index>=this.students.length)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
@@ -76,30 +78,32 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		if(student==null)
+		{
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		Student[] s1 = new Student[this.students.length+1];
 		 s1[0] = student;
 		 for(int i = 1; i< s1.length; i++)
 			 s1[i] = this.students[i-1];
 		this.students = s1;
-		if(student==null)
-		{
-			throw new IllegalArgumentException("IllegalArgument");
-		}
+		
 		
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		if(student==null)
+		{
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		Student[] s1 = new Student[this.getStudents().length+1];
 		 for(int i = 0; i < this.students.length; i++)
 			 s1[i] = this.students[i];
 		 s1[s1.length - 1] = student;
 		 this.students = s1;
-		if(student==null)
-		{
-			throw new IllegalArgumentException("IllegalArgument");
-		}
+		
 		
 	}
 
@@ -137,6 +141,10 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = 0; i < this.students.length; i++)
 			 if(this.students[i] != student) s1[count++] = this.students[i];
 		 this.students = s1;
+		 if(student==null)
+		 {
+			 throw new IllegalArgumentException("Student not exist");
+		 }	 
 		
 	}
 
@@ -199,16 +207,18 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+		if(date==null)
+		   {
+			   throw new IllegalArgumentException("IllegalArgument");
+		   }
+		
 		ArrayList<Student> s1 = new ArrayList<>();
 		   for(Student s : this.students)
 		   {
 		       if(s.getBirthDate().compareTo(date) == 0)
 				   s1.add(s);
 		   }
-		   if(date==null)
-		   {
-			   throw new IllegalArgumentException("IllegalArgument");
-		   }
+		   
 		   return  s1.toArray(new Student[s1.size()]);
 	}
 
@@ -252,14 +262,15 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
 		
+		if(student==null)
+		   {
+			   throw new IllegalArgumentException("IllegalArgument");
+		   }
 		this.bubbleSort();
 		int i;
 		   for( i = 0; i < this.students.length; i++)
 			   if(this.students[i].equals(student)) break;
-		   if(student==null)
-		   {
-			   throw new IllegalArgumentException("IllegalArgument");
-		   }
+		   
 		   return this.students[i+1];
 	}
 }
