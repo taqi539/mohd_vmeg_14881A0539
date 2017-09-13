@@ -100,14 +100,14 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
-	 //Student[] s1 = new Student[this.getStudents().length+1];
-		/*for(int i=0;i<this.students.length;i++)
-		{
-			s1[i+1]=s1[i];
-			s1[i]=this.students;
-		}*/
-		
+	
+	Student[] s1 = new Student[this.students.length+1];
+		 for(int i = 0; i < index; i++)
+			 s1[i] = this.students[i];
+		 s1[index] = student;
+		 for(int i = index; i < this.students.length; i++)
+			 s1[i+1] = this.students[i];
+		 this.students = s1;
 	}
 
 	@Override
