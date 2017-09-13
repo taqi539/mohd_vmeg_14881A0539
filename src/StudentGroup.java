@@ -142,6 +142,10 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = 0; i < index; i++)
 			 s1[i] = this.students[i];
 		 this.students = s1; 
+		 if(index < 0 || index>=this.students.length)
+		{
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 	}
 
 	@Override
@@ -157,6 +161,10 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = index; i < this.students.length; i++)
 			 s1[i-index] = this.students[i];
 		 this.students = s1;
+		 if(this.students==null)
+		 {
+			 throw new IllegalArgumentException("IllegalArgument");
+		 }
 	}
 
 	@Override
@@ -190,6 +198,10 @@ public class StudentGroup implements StudentArrayOperation {
 		   {
 		       if(s.getBirthDate().compareTo(date) == 0)
 				   s1.add(s);
+		   }
+		   if(date==null)
+		   {
+			   throw new IllegalArgumentException("IllegalArgument");
 		   }
 		   return  s1.toArray(new Student[s1.size()]);
 	}
@@ -232,6 +244,10 @@ public class StudentGroup implements StudentArrayOperation {
 		int i;
 		   for( i = 0; i < this.students.length; i++)
 			   if(this.students[i].equals(student)) break;
+		   if(this.students==null)
+		   {
+			   throw new IllegalArgumentException("IllegalArgument");
+		   }
 		   return this.students[i+1];
 	}
 }
