@@ -229,7 +229,13 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		return null;
+		ArrayList<Student> s1 = new ArrayList<>();
+		  for(int i = 0; i < this.students.length; i++)
+		  {
+		      if(getCurrentAgeByDate(i) == age)
+				  s1.add(this.students[i]);
+		  }
+          return  s1.toArray(new Student[s1.size()]);
 	}
 
 	@Override
