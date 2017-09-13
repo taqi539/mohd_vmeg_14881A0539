@@ -36,20 +36,20 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
-	/*	if(this.students==null)
+		if(this.students==null)
 		{
-			throws new IllegalArgumentException();
-		}*/	
+			throw new IllegalArgumentException("IllegalArgument");
+		}	
 		this.students=students;
 	}
 
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		/*if(index < 0 || index>=students.length())
+		if(index < 0 || index>=this.students.length)
 		{
-			throws new IllegalArgumentException();
-		}*/
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		return students[index];
 	}
 
@@ -57,14 +57,14 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		this.getStudents()[index] = student;
-		/*if(this.students==null)
+		if(this.students==null)
 		{
-			throws new IllegalArgumentException();
+			throw new IllegalArgumentException("IllegalArgument");
 		}
-		if(index < 0 || index>=students.length())
+		if(index < 0 || index>=this.students.length)
 		{
-			throws new IllegalArgumentException();
-		}*/
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		
 	}
 
@@ -76,10 +76,10 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = 1; i< s1.length; i++)
 			 s1[i] = this.students[i-1];
 		this.students = s1;
-		/*if(this.student==null)
+		if(this.students==null)
 		{
-			throws new IllegalArgumentException();
-		}*/
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		
 	}
 
@@ -91,10 +91,10 @@ public class StudentGroup implements StudentArrayOperation {
 			 s1[i] = this.students[i];
 		 s1[s1.length - 1] = student;
 		 this.students = s1;
-		/*if(this.student==null)
+		if(this.students==null)
 		{
-			throws new IllegalArgumentException();
-		}*/
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		
 	}
 
@@ -118,10 +118,10 @@ public class StudentGroup implements StudentArrayOperation {
 		for(int i = 0; i < this.students.length; i++)
 			 if(i != index) s1[count++] = this.students[i];
 		 this.students = s1;
-		/*if(index < 0 || index>=students.length())
+		if(index < 0 || index>=this.students.length)
 		{
-			throws new IllegalArgumentException();
-		}*/
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 	}
 
 	@Override
