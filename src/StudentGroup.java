@@ -66,11 +66,11 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
-		this.getStudents()[index] = student;
 		if(index < 0 || index>=this.students.length)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
+		this.getStudents()[index] = student;
 		this.students[index]=student;
 		
 	}
@@ -124,13 +124,14 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		Student[] s1 = new Student[this.getStudents().length+1];
 		int count=0;
-		for(int i = 0; i < this.students.length; i++)
-			 if(i != index) s1[count++] = this.students[i];
-		 this.students = s1;
 		if(index < 0 || index>=this.students.length)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
+		for(int i = 0; i < this.students.length; i++)
+			 if(i != index) s1[count++] = this.students[i];
+		 this.students = s1;
+		
 	}
 
 	@Override
@@ -151,14 +152,15 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		if(index < 0 || index>=this.students.length)
+		{
+			throw new IllegalArgumentException("IllegalArgument");
+		}
 		Student[] s1 = new Student[index]; 
 		 for(int i = 0; i < index; i++)
 			 s1[i] = this.students[i];
 		 this.students = s1; 
-		 if(index < 0 || index>=this.students.length)
-		{
-			throw new IllegalArgumentException("IllegalArgument");
-		}
+		 
 	}
 
 	@Override
@@ -171,13 +173,14 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		Student[] s1 = new Student[this.students.length-index]; 
 		 int count = 0;
-		 for(int i = index; i < this.students.length; i++)
-			 s1[i-index] = this.students[i];
-		 this.students = s1;
-		  if(index < 0 || index>=this.students.length)
+		 if(index < 0 || index>=this.students.length)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
+		 for(int i = index; i < this.students.length; i++)
+			 s1[i-index] = this.students[i];
+		 this.students = s1;
+		  
 		 
 	}
 
