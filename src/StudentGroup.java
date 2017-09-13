@@ -36,7 +36,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
-		if(this.students==null)
+		if(students==null)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}	
