@@ -57,7 +57,7 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		this.getStudents()[index] = student;
-		if(this.students==null)
+		if(student==null)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
@@ -65,6 +65,7 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
+		this.students[index]=student;
 		
 	}
 
@@ -76,7 +77,7 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = 1; i< s1.length; i++)
 			 s1[i] = this.students[i-1];
 		this.students = s1;
-		if(this.students==null)
+		if(student==null)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
@@ -91,7 +92,7 @@ public class StudentGroup implements StudentArrayOperation {
 			 s1[i] = this.students[i];
 		 s1[s1.length - 1] = student;
 		 this.students = s1;
-		if(this.students==null)
+		if(student==null)
 		{
 			throw new IllegalArgumentException("IllegalArgument");
 		}
@@ -161,10 +162,11 @@ public class StudentGroup implements StudentArrayOperation {
 		 for(int i = index; i < this.students.length; i++)
 			 s1[i-index] = this.students[i];
 		 this.students = s1;
-		 if(this.students==null)
-		 {
-			 throw new IllegalArgumentException("IllegalArgument");
-		 }
+		  if(index < 0 || index>=this.students.length)
+		{
+			throw new IllegalArgumentException("IllegalArgument");
+		}
+		 
 	}
 
 	@Override
@@ -244,7 +246,7 @@ public class StudentGroup implements StudentArrayOperation {
 		int i;
 		   for( i = 0; i < this.students.length; i++)
 			   if(this.students[i].equals(student)) break;
-		   if(this.students==null)
+		   if(student==null)
 		   {
 			   throw new IllegalArgumentException("IllegalArgument");
 		   }
